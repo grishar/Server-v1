@@ -53,7 +53,8 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 	string respons;
 	
 	if(file){
-		respons = str[2] + " 200 OK\r\n" + "Content-Type: text/html\r\n\r\n";
+		respons = str[2] + " 200 OK\r\n\r\n";
+// 		+ "Content-Type: text/html\r\n\r\n";
 		
 		char ch;
 		
@@ -67,9 +68,10 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 			
 			document+=ch;
 		}
+		respons += document;
 		
-		respons += "Content-length: " + to_string(document.size()) + "\r\n" +
-		"Connection: close\r\nContent-Type: text/html\r\n\r\n" + document;
+// 		respons += "Content-length: " + to_string(document.size()) + "\r\n" +
+// 		"Connection: close\r\nContent-Type: text/html\r\n\r\n" + document;
 		
 		file.close();
 		
