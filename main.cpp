@@ -70,8 +70,9 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 		
 	}
 	else{
-		respons = str[2] + " 404 Not Found\r\n" + "Content-Type: text/html\r\n\n" +
-		"<html><header><title>Not Found</title></header><body>File Not Found</body></html>"
+		respons = str[2] + " 404 Not Found\r\n"
+// 		+ "Content-Type: text/html\r\n\n" +
+// 		"<html><header><title>Not Found</title></header><body>File Not Found</body></html>"
 ;
 	}
 	
@@ -106,11 +107,11 @@ void ThreadProcessing(int &epoll, string rootDir){
 			else if (recvResult > 0){
 				string request = msgBuffer;
 				
-				Loging("/tmp/log", request);
+				Loging("~/log", request);
 				
 				string respons = HttpRespons(msgBuffer, recvResult, rootDir);
 				
-				Loging("/tmp/log", respons);
+				Loging("~/log", respons);
 				
 				send(events[i].data.fd, respons.c_str(), respons.size(), MSG_NOSIGNAL);
 			}
