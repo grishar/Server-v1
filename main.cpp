@@ -57,14 +57,19 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 		
 		char ch;
 		
+		string document;
+		
 		for(;;){
 			file.get(ch);
 			
 			if(file.eof())
 				break;
 			
-			respons+=ch;
+			document+=ch;
 		}
+		
+		respons += "Content-length: " + to_string(document.size()) + "\r\n" +
+		"Connection: close\r\nContent-Type: text/html\r\n\r\n" + document;
 		
 		file.close();
 		
