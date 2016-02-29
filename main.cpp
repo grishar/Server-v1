@@ -82,7 +82,7 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 ;
 	}
 	
-	return respons;
+	return respons + "\r";
 }
 
 void Loging(string fileName, string info){
