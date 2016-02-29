@@ -68,7 +68,7 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 			
 			document+=ch;
 		}
-		respons += document + "\r\n";
+		respons += document;
 		
 // 		respons += "Content-length: " + to_string(document.size()) + "\r\n" +
 // 		"Connection: close\r\nContent-Type: text/html\r\n\r\n" + document;
@@ -120,6 +120,9 @@ void ThreadProcessing(int &epoll, string rootDir){
 				Loging("/tmp/log", respons);
 				
 				send(events[i].data.fd, respons.c_str(), respons.size(), MSG_NOSIGNAL);
+				
+				shutdown(events[i].data.fd, SHUT_RDWR);
+				epoll_ctl(epoll, EPOLL_CTL_DEL, events[i].data.fd, &events[i]);
 			}
 			
 		}
