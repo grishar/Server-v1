@@ -77,7 +77,7 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 		
 	}
 	else{
-		respons = "HTTP/1.0 404 NOT FOUND\r\n" + "Content-Type: text/html\r\n\r\n";
+		respons = "HTTP/1.0 404 NOT FOUND\r\nContent-Type: text/html\r\n\r\n";
 // 		+ "<html><header><title>Not Found</title></header><body>File Not Found</body></html>"
 ;
 	}

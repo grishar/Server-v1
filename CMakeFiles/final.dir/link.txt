@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11   CMakeFiles/final.dir/main.cpp.o  -o final -rdynamic -pthread 

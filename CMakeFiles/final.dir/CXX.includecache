@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/grisha/server/main.cpp
+iostream
+-
+thread
+-
+string
+-
+sstream
+-
+fstream
+-
+algorithm
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+sys/time.h
+-
+sys/epoll.h
+-
+errno.h
+-
+unistd.h
+-
+fcntl.h
+-
+cstdio
+-
+cstdlib
+-
+
