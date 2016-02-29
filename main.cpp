@@ -68,7 +68,7 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 			
 			document+=ch;
 		}
-		respons += document;
+		respons += document + "\r\n";
 		
 // 		respons += "Content-length: " + to_string(document.size()) + "\r\n" +
 // 		"Connection: close\r\nContent-Type: text/html\r\n\r\n" + document;
