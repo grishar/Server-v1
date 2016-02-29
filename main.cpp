@@ -53,7 +53,7 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 	string respons;
 	
 	if(file){
-		respons = "HTTP/1.1 200 OK\r\n\r\n";
+		respons = str[2] + " 200 OK\r\n\r\n";
 // 		+ "Content-Type: text/html\r\n\r\n";
 		
 		char ch;
@@ -67,7 +67,11 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 				break;
 			
 			document+=ch;
+			
 		}
+		
+		document.erase(document.end()-1);
+		
 		respons += document;
 		
 // 		respons += "Content-length: " + to_string(document.size()) + "\r\n" +
@@ -77,12 +81,12 @@ string HttpRespons(char* buffer, size_t bufferLength, string rootDirectory){
 		
 	}
 	else{
-		respons = "HTTP/1.1 404 NOT FOUND\r\nContent-Type: text/html\r\n\r\n";
+		respons = str[2] + " 404 NOT FOUND\r\n" + "Content-Type: text/html\r\n\r\n";
 // 		+ "<html><header><title>Not Found</title></header><body>File Not Found</body></html>"
 ;
 	}
 	
-	return respons + "\r";
+	return respons;
 }
 
 void Loging(string fileName, string info){
@@ -209,7 +213,7 @@ int main(int argc, char *argv[])
 	}
 	else{
 		exit(0);
-	}	
+	}
 
 
 	return 0;
